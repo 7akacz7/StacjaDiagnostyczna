@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StacjaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Diagnosta">
+          <Key>
+            <PropertyRef Name="Id_Diagnosty" />
+          </Key>
+          <Property Name="Id_Diagnosty" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Staż" Type="int" />
+          <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pojazd">
+          <Key>
+            <PropertyRef Name="Id_Pojazdu" />
+          </Key>
+          <Property Name="Id_Pojazdu" Type="int" Nullable="false" />
+          <Property Name="Marka" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Numer_Rejestracyjny" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Id_Wlasciciela" Type="int" Nullable="false" />
+          <Property Name="Przebieg" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="Rocznik" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Przeglad">
+          <Key>
+            <PropertyRef Name="Id_Przegladu" />
+          </Key>
+          <Property Name="Id_Przegladu" Type="int" Nullable="false" />
+          <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="ID_Pojazdu" Type="int" Nullable="false" />
+          <Property Name="ID_Diagnosty" Type="int" Nullable="false" />
+          <Property Name="Wynik" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wlasciciel">
+          <Key>
+            <PropertyRef Name="Id_Wlasciciela" />
+          </Key>
+          <Property Name="Id_Wlasciciela" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="PESEL" Type="decimal" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="poj_wla">
+          <End Role="Wlasciciel" Type="Self.Wlasciciel" Multiplicity="1" />
+          <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wlasciciel">
+              <PropertyRef Name="Id_Wlasciciela" />
+            </Principal>
+            <Dependent Role="Pojazd">
+              <PropertyRef Name="Id_Wlasciciela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="prze_diag">
+          <End Role="Diagnosta" Type="Self.Diagnosta" Multiplicity="1" />
+          <End Role="Przeglad" Type="Self.Przeglad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnosta">
+              <PropertyRef Name="Id_Diagnosty" />
+            </Principal>
+            <Dependent Role="Przeglad">
+              <PropertyRef Name="ID_Diagnosty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="prze_poj">
+          <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
+          <End Role="Przeglad" Type="Self.Przeglad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazd">
+              <PropertyRef Name="Id_Pojazdu" />
+            </Principal>
+            <Dependent Role="Przeglad">
+              <PropertyRef Name="ID_Pojazdu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StacjaModelStoreContainer">
+          <EntitySet Name="Diagnosta" EntityType="Self.Diagnosta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pojazd" EntityType="Self.Pojazd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Przeglad" EntityType="Self.Przeglad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wlasciciel" EntityType="Self.Wlasciciel" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="poj_wla" Association="Self.poj_wla">
+            <End Role="Wlasciciel" EntitySet="Wlasciciel" />
+            <End Role="Pojazd" EntitySet="Pojazd" />
+          </AssociationSet>
+          <AssociationSet Name="prze_diag" Association="Self.prze_diag">
+            <End Role="Diagnosta" EntitySet="Diagnosta" />
+            <End Role="Przeglad" EntitySet="Przeglad" />
+          </AssociationSet>
+          <AssociationSet Name="prze_poj" Association="Self.prze_poj">
+            <End Role="Pojazd" EntitySet="Pojazd" />
+            <End Role="Przeglad" EntitySet="Przeglad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StacjaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Diagnosta">
+          <Key>
+            <PropertyRef Name="Id_Diagnosty" />
+          </Key>
+          <Property Name="Id_Diagnosty" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Staż" Type="Int32" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Przeglad" Relationship="Self.prze_diag" FromRole="Diagnosta" ToRole="Przeglad" />
+        </EntityType>
+        <EntityType Name="Pojazd">
+          <Key>
+            <PropertyRef Name="Id_Pojazdu" />
+          </Key>
+          <Property Name="Id_Pojazdu" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numer_Rejestracyjny" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Wlasciciela" Type="Int32" Nullable="false" />
+          <Property Name="Przebieg" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="Rocznik" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Wlasciciel" Relationship="Self.poj_wla" FromRole="Pojazd" ToRole="Wlasciciel" />
+          <NavigationProperty Name="Przeglad" Relationship="Self.prze_poj" FromRole="Pojazd" ToRole="Przeglad" />
+        </EntityType>
+        <EntityType Name="Przeglad">
+          <Key>
+            <PropertyRef Name="Id_Przegladu" />
+          </Key>
+          <Property Name="Id_Przegladu" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Pojazdu" Type="Int32" Nullable="false" />
+          <Property Name="ID_Diagnosty" Type="Int32" Nullable="false" />
+          <Property Name="Wynik" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Diagnosta" Relationship="Self.prze_diag" FromRole="Przeglad" ToRole="Diagnosta" />
+          <NavigationProperty Name="Pojazd" Relationship="Self.prze_poj" FromRole="Przeglad" ToRole="Pojazd" />
+        </EntityType>
+        <EntityType Name="Wlasciciel">
+          <Key>
+            <PropertyRef Name="Id_Wlasciciela" />
+          </Key>
+          <Property Name="Id_Wlasciciela" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PESEL" Type="Decimal" Precision="11" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Pojazd" Relationship="Self.poj_wla" FromRole="Wlasciciel" ToRole="Pojazd" />
+        </EntityType>
+        <Association Name="prze_diag">
+          <End Role="Diagnosta" Type="Self.Diagnosta" Multiplicity="1" />
+          <End Role="Przeglad" Type="Self.Przeglad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnosta">
+              <PropertyRef Name="Id_Diagnosty" />
+            </Principal>
+            <Dependent Role="Przeglad">
+              <PropertyRef Name="ID_Diagnosty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="poj_wla">
+          <End Role="Wlasciciel" Type="Self.Wlasciciel" Multiplicity="1" />
+          <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wlasciciel">
+              <PropertyRef Name="Id_Wlasciciela" />
+            </Principal>
+            <Dependent Role="Pojazd">
+              <PropertyRef Name="Id_Wlasciciela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="prze_poj">
+          <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
+          <End Role="Przeglad" Type="Self.Przeglad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazd">
+              <PropertyRef Name="Id_Pojazdu" />
+            </Principal>
+            <Dependent Role="Przeglad">
+              <PropertyRef Name="ID_Pojazdu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StacjaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Diagnosta" EntityType="Self.Diagnosta" />
+          <EntitySet Name="Pojazd" EntityType="Self.Pojazd" />
+          <EntitySet Name="Przeglad" EntityType="Self.Przeglad" />
+          <EntitySet Name="Wlasciciel" EntityType="Self.Wlasciciel" />
+          <AssociationSet Name="prze_diag" Association="Self.prze_diag">
+            <End Role="Diagnosta" EntitySet="Diagnosta" />
+            <End Role="Przeglad" EntitySet="Przeglad" />
+          </AssociationSet>
+          <AssociationSet Name="poj_wla" Association="Self.poj_wla">
+            <End Role="Wlasciciel" EntitySet="Wlasciciel" />
+            <End Role="Pojazd" EntitySet="Pojazd" />
+          </AssociationSet>
+          <AssociationSet Name="prze_poj" Association="Self.prze_poj">
+            <End Role="Pojazd" EntitySet="Pojazd" />
+            <End Role="Przeglad" EntitySet="Przeglad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StacjaModelStoreContainer" CdmEntityContainer="StacjaEntities">
+          <EntitySetMapping Name="Diagnosta">
+            <EntityTypeMapping TypeName="StacjaModel.Diagnosta">
+              <MappingFragment StoreEntitySet="Diagnosta">
+                <ScalarProperty Name="Id_Diagnosty" ColumnName="Id_Diagnosty" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Staż" ColumnName="Staż" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pojazd">
+            <EntityTypeMapping TypeName="StacjaModel.Pojazd">
+              <MappingFragment StoreEntitySet="Pojazd">
+                <ScalarProperty Name="Id_Pojazdu" ColumnName="Id_Pojazdu" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Numer_Rejestracyjny" ColumnName="Numer_Rejestracyjny" />
+                <ScalarProperty Name="Id_Wlasciciela" ColumnName="Id_Wlasciciela" />
+                <ScalarProperty Name="Przebieg" ColumnName="Przebieg" />
+                <ScalarProperty Name="Rocznik" ColumnName="Rocznik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Przeglad">
+            <EntityTypeMapping TypeName="StacjaModel.Przeglad">
+              <MappingFragment StoreEntitySet="Przeglad">
+                <ScalarProperty Name="Id_Przegladu" ColumnName="Id_Przegladu" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ID_Pojazdu" ColumnName="ID_Pojazdu" />
+                <ScalarProperty Name="ID_Diagnosty" ColumnName="ID_Diagnosty" />
+                <ScalarProperty Name="Wynik" ColumnName="Wynik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wlasciciel">
+            <EntityTypeMapping TypeName="StacjaModel.Wlasciciel">
+              <MappingFragment StoreEntitySet="Wlasciciel">
+                <ScalarProperty Name="Id_Wlasciciela" ColumnName="Id_Wlasciciela" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
