@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,16 +15,19 @@ using System.Windows.Shapes;
 namespace StacjaDiagnostyczna
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy Start.xaml
     /// </summary>
-    /// 
-    public partial class MainWindow : NavigationWindow
+    public partial class Start : Page
     {
-
-        public MainWindow()
+        public Start()
         {
-
             InitializeComponent();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // View Expense Report
+            PrzegladStrona przegladstrona = new PrzegladStrona();
+            this.NavigationService.Navigate(przegladstrona);
         }
     }
 }

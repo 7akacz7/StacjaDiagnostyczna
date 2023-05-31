@@ -16,15 +16,12 @@ using System.Windows.Shapes;
 namespace StacjaDiagnostyczna
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy PrzegladStrona.xaml
     /// </summary>
-    /// 
-    public partial class MainWindow : NavigationWindow
+    public partial class PrzegladStrona : Page
     {
-
-        public MainWindow()
+        public PrzegladStrona()
         {
-
             InitializeComponent();
         }
     }

@@ -136,7 +136,7 @@
             <PropertyRef Name="Id_Przegladu" />
           </Key>
           <Property Name="Id_Przegladu" Type="Int32" Nullable="false" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data" Nullable="false" Precision="0" Type="DateTime" />
           <Property Name="ID_Pojazdu" Type="Int32" Nullable="false" />
           <Property Name="ID_Diagnosty" Type="Int32" Nullable="false" />
           <Property Name="Wynik" Type="Boolean" Nullable="false" />
