@@ -15,8 +15,8 @@ namespace StacjaDiagnostyczna
     public partial class Przeglad
     {
         public int Id_Przegladu { get; set; }
-        public System.DateTime Data { get; set; }
         public int ID_Pojazdu { get; set; }
+        public System.DateTime Data { get; set; }
         public int ID_Diagnosty { get; set; }
         public bool Wynik { get; set; }
     

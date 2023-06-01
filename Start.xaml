@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:StacjaDiagnostyczna"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Start">
+      Title="Start" Loaded="Window_Loaded">
 
     <Grid>
         <Grid.Background>
@@ -26,8 +26,6 @@
             <Label VerticalAlignment="Center" Foreground="White" Height="40" FontSize="16">Kto wykonuje przegląd?</Label>
         </Border>
         <ListBox Name="peopleListBox" Margin="30,62,0,45">
-            <ListBoxItem Width="94" FontSize="18">Paweł</ListBoxItem>
-            <ListBoxItem Width="94" FontSize="18">Bartek</ListBoxItem>
         </ListBox>
 
         <!-- View report button -->

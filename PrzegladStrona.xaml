@@ -6,68 +6,49 @@
       xmlns:local="clr-namespace:StacjaDiagnostyczna"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PrzegladStrona">
+      Title="PrzegladStrona"  Loaded="Window_Loaded">
+    <Page.Resources>
+        <CollectionViewSource x:Key="przegladViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="przegladViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="przegladViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="przegladViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="przegladViewSource4" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+    </Page.Resources>
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="auto.jpg" />
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <Grid DataContext="{StaticResource przegladViewSource}">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="625" />
         </Grid.RowDefinitions>
-
-
-        <Label Grid.Column="1" VerticalAlignment="Center" FontFamily="Trebuchet MS" 
- FontWeight="Bold" FontSize="18" Foreground="#0066cc">
-            Expense Report For:
-        </Label>
-        <Grid Margin="10" Grid.Column="1" Grid.Row="1">
-
+        <Button HorizontalAlignment="Right" Margin="0,255,630,340" Name="saveButton" Width="110" Click="saveButton_Click" Grid.Row="1">Zapisz</Button>
+        <Grid x:Name="grid1" DataContext="{StaticResource przegladViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,55,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <!-- Name -->
-            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal">
-                <Label Margin="0,0,0,5" FontWeight="Bold">Name:</Label>
-                <Label Margin="0,0,0,5" FontWeight="Bold"></Label>
-            </StackPanel>
-
-            <!-- Department -->
-            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal">
-                <Label Margin="0,0,0,5" FontWeight="Bold">Department:</Label>
-                <Label Margin="0,0,0,5" FontWeight="Bold"></Label>
-            </StackPanel>
-
-            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" 
-           HorizontalAlignment="Left">
-                <!-- Expense type and Amount table -->
-                <DataGrid  AutoGenerateColumns="False" RowHeaderWidth="0" >
-                    <DataGrid.ColumnHeaderStyle>
-                        <Style TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="Height" Value="35" />
-                            <Setter Property="Padding" Value="5" />
-                            <Setter Property="Background" Value="#4E87D4" />
-                            <Setter Property="Foreground" Value="White" />
-                        </Style>
-                    </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="ExpenseType" />
-                        <DataGridTextColumn Header="Amount"  />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
+            <Label Grid.Column="0" Content="Data:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <DatePicker x:Name="dataDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding Data, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="Wynik:" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <CheckBox x:Name="wynikCheckBox" Grid.Column="1" Content="" HorizontalAlignment="Left" IsChecked="{Binding Wynik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid2" DataContext="{StaticResource przegladViewSource4}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,60,0,0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Numer Rejestracyjny:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="numer_RejestracyjnyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Pojazd.Numer_Rejestracyjny, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
     </Grid>
 </Page>

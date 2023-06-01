@@ -73,6 +73,9 @@
     <Compile Include="Diagnosta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodajPojazd.xaml.cs">
+      <DependentUpon>DodajPojazd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +96,10 @@
     <Compile Include="Wlasciciel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="DodajPojazd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -150,7 +157,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Diagnosta.datasource" />
+    <None Include="Properties\DataSources\Pojazd.datasource" />
     <None Include="Properties\DataSources\Przeglad.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
