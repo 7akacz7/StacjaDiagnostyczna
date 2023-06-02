@@ -78,7 +78,13 @@ namespace StacjaDiagnostyczna
                     };
 
                     context.Przeglad.Add(newPrzeglad);
-                    context.SaveChanges();
+
+                // Zaktualizuj kolumnę Przebieg w tabeli Pojazd
+                if (int.TryParse(przebiegTextBox.Text, out int przebieg))
+                {
+                    pojazd.Przebieg = przebieg;
+                }
+                context.SaveChanges();
                     
                     Raport raport = new Raport();
                     raport.ShowDialog();
