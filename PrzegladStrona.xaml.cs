@@ -45,6 +45,7 @@ namespace StacjaDiagnostyczna
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
+
             // Pobierz dane z formularza
             DateTime data = dataDatePicker.SelectedDate.GetValueOrDefault();
             bool wynik = wynikCheckBox.IsChecked.GetValueOrDefault();
@@ -52,6 +53,9 @@ namespace StacjaDiagnostyczna
 
             // Pobierz ID_Diagnosty na podstawie wybranego elementu z peopleComboBox
             int idDiagnosty = context.Diagnosta.FirstOrDefault(d => d.Imie == selectedImie)?.Id_Diagnosty ?? 0;
+
+            
+            int lastPrzegladId = context.Przeglad.OrderByDescending(p => p.Id_Przegladu).Select(p => p.Id_Przegladu).FirstOrDefault();
 
             // Sprawdź, czy Numer Rejestracyjny istnieje w tabeli Pojazd
             bool numerRejestracyjnyExists = context.Pojazd.Any(p => p.Numer_Rejestracyjny == numerRejestracyjny);
@@ -61,22 +65,25 @@ namespace StacjaDiagnostyczna
                 // Pobierz obiekt Pojazd na podstawie Numeru Rejestracyjnego
                 Pojazd pojazd = context.Pojazd.FirstOrDefault(p => p.Numer_Rejestracyjny == numerRejestracyjny);
 
-                if (pojazd != null)
+                if (pojazd != null && idDiagnosty != 0)
                 {
-                    // Dodaj nowy rekord do bazy danych
+
+
+
                     Przeglad newPrzeglad = new Przeglad
                     {
+                        Id_Przegladu = lastPrzegladId + 1,
                         Data = data,
+                        Pojazd = pojazd,
                         ID_Diagnosty = idDiagnosty,
-                        Pojazd = pojazd, // Ustaw obiekt Pojazd jako część relacji
                         Wynik = wynik
                     };
 
                     context.Przeglad.Add(newPrzeglad);
+                    context.SaveChanges();
                     
-
-                    // Opcjonalnie, wyświetl komunikat o sukcesie lub wykonaj inne czynności po dodaniu rekordu
                     MessageBox.Show("Nowy wiersz został dodany do bazy danych.");
+
                 }
             }
             else

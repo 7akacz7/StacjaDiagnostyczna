@@ -11,9 +11,13 @@ namespace StacjaDiagnostyczna
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Przeglad
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id_Przegladu { get; set; }
         public int ID_Pojazdu { get; set; }
         public System.DateTime Data { get; set; }

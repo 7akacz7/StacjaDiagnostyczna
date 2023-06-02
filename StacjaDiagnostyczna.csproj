@@ -90,6 +90,11 @@
     <Compile Include="PrzegladStrona.xaml.cs">
       <DependentUpon>PrzegladStrona.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StacjaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StacjaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Start.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>
     </Compile>
@@ -162,6 +167,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StacjaDataSet.xsc">
+      <DependentUpon>StacjaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StacjaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StacjaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StacjaDataSet.xss">
+      <DependentUpon>StacjaDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

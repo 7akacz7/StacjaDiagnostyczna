@@ -13,6 +13,12 @@
         <CollectionViewSource x:Key="przegladViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
         <CollectionViewSource x:Key="przegladViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
         <CollectionViewSource x:Key="przegladViewSource4" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <local:StacjaDataSet x:Key="stacjaDataSet"/>
+        <CollectionViewSource x:Key="przegladViewSource5" Source="{Binding Przeglad, Source={StaticResource stacjaDataSet}}"/>
+        <CollectionViewSource x:Key="pojazdViewSource" Source="{Binding Pojazd, Source={StaticResource stacjaDataSet}}"/>
+        <CollectionViewSource x:Key="przegladViewSource6" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="przegladViewSource7" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="przegladViewSource8" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
     </Page.Resources>
 
     <Grid DataContext="{StaticResource przegladViewSource}">
@@ -22,7 +28,16 @@
             <RowDefinition Height="625" />
         </Grid.RowDefinitions>
         <Button HorizontalAlignment="Right" Margin="0,255,630,340" Name="saveButton" Width="110" Click="saveButton_Click" Grid.Row="1">Zapisz</Button>
-        <Grid x:Name="grid1" DataContext="{StaticResource przegladViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,55,0,0" Grid.Row="1">
+        <Grid x:Name="grid2" DataContext="{StaticResource pojazdViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,59,0,0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid1" DataContext="{StaticResource przegladViewSource6}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="86,45,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -39,7 +54,7 @@
             <Label Grid.Column="0" Content="Wynik:" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
             <CheckBox x:Name="wynikCheckBox" Grid.Column="1" Content="" HorizontalAlignment="Left" IsChecked="{Binding Wynik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
         </Grid>
-        <Grid x:Name="grid2" DataContext="{StaticResource przegladViewSource4}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,60,0,0" Grid.Row="1">
+        <Grid x:Name="grid3" DataContext="{StaticResource przegladViewSource7}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="367,56,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -49,6 +64,15 @@
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Numer Rejestracyjny:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="numer_RejestracyjnyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Pojazd.Numer_Rejestracyjny, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid4" DataContext="{StaticResource przegladViewSource8}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="86,8,0,0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
         </Grid>
     </Grid>
 </Page>
