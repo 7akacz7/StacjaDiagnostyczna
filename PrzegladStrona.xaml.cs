@@ -50,7 +50,7 @@ namespace StacjaDiagnostyczna
             DateTime data = dataDatePicker.SelectedDate.GetValueOrDefault();
             bool wynik = wynikCheckBox.IsChecked.GetValueOrDefault();
             string numerRejestracyjny = numer_RejestracyjnyTextBox.Text;
-
+            string uwagi = uwagiTextBox.Text;
             // Pobierz ID_Diagnosty na podstawie wybranego elementu z peopleComboBox
             int idDiagnosty = context.Diagnosta.FirstOrDefault(d => d.Imie == selectedImie)?.Id_Diagnosty ?? 0;
 
@@ -66,7 +66,8 @@ namespace StacjaDiagnostyczna
                 if (pojazd != null && idDiagnosty != 0)
                 {
 
-
+                if (int.TryParse(przebiegTextBox.Text, out int nowyPrzebieg) && nowyPrzebieg >= pojazd.Przebieg)
+                {
 
                     Przeglad newPrzeglad = new Przeglad
                     {
@@ -74,24 +75,25 @@ namespace StacjaDiagnostyczna
                         Data = data,
                         Pojazd = pojazd,
                         ID_Diagnosty = idDiagnosty,
-                        Wynik = wynik
+                        Wynik = wynik,
+                        Uwagi = uwagi
                     };
 
                     context.Przeglad.Add(newPrzeglad);
-
-                // Zaktualizuj kolumnę Przebieg w tabeli Pojazd
-                if (int.TryParse(przebiegTextBox.Text, out int przebieg))
-                {
-                    pojazd.Przebieg = przebieg;
-                }
-                context.SaveChanges();
+                    pojazd.Przebieg = nowyPrzebieg;
+                    context.SaveChanges();
                     
                     Raport raport = new Raport();
                     raport.ShowDialog();
 
                 }
+                else
+                {
+                    MessageBox.Show("Wprowadź poprawną wartość dla pola Przebieg.");
+                }
+            }
             
-           
+
         }
 
         private void sprawdz_Click(object sender, RoutedEventArgs e)

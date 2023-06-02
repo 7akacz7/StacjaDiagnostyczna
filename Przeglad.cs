@@ -23,6 +23,7 @@ namespace StacjaDiagnostyczna
         public System.DateTime Data { get; set; }
         public int ID_Diagnosty { get; set; }
         public bool Wynik { get; set; }
+        public string Uwagi { get; set; }
     
         public virtual Diagnosta Diagnosta { get; set; }
         public virtual Pojazd Pojazd { get; set; }
