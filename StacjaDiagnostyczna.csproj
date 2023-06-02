@@ -90,6 +90,9 @@
     <Compile Include="PrzegladStrona.xaml.cs">
       <DependentUpon>PrzegladStrona.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Raport.xaml.cs">
+      <DependentUpon>Raport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StacjaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -118,6 +121,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PrzegladStrona.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Raport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

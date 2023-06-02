@@ -57,11 +57,9 @@ namespace StacjaDiagnostyczna
             
             int lastPrzegladId = context.Przeglad.OrderByDescending(p => p.Id_Przegladu).Select(p => p.Id_Przegladu).FirstOrDefault();
 
-            // Sprawdź, czy Numer Rejestracyjny istnieje w tabeli Pojazd
-            bool numerRejestracyjnyExists = context.Pojazd.Any(p => p.Numer_Rejestracyjny == numerRejestracyjny);
+            
 
-            if (numerRejestracyjnyExists)
-            {
+            
                 // Pobierz obiekt Pojazd na podstawie Numeru Rejestracyjnego
                 Pojazd pojazd = context.Pojazd.FirstOrDefault(p => p.Numer_Rejestracyjny == numerRejestracyjny);
 
@@ -82,9 +80,25 @@ namespace StacjaDiagnostyczna
                     context.Przeglad.Add(newPrzeglad);
                     context.SaveChanges();
                     
-                    MessageBox.Show("Nowy wiersz został dodany do bazy danych.");
+                    Raport raport = new Raport();
+                    raport.ShowDialog();
 
                 }
+            
+           
+        }
+
+        private void sprawdz_Click(object sender, RoutedEventArgs e)
+        {
+            string numerRejestracyjny = numer_RejestracyjnyTextBox.Text;
+
+            // Sprawdź, czy Numer Rejestracyjny istnieje w tabeli Pojazd
+            bool numerRejestracyjnyExists = context.Pojazd.Any(p => p.Numer_Rejestracyjny == numerRejestracyjny);
+
+            if (numerRejestracyjnyExists)
+            {
+                // Ustaw przycisk "Zapisz" jako widoczny
+                saveButton.Visibility = Visibility.Visible;
             }
             else
             {
