@@ -101,7 +101,7 @@ namespace StacjaDiagnostyczna
                     readerWlasciciel.Close();
 
                     // Wyświetlanie danych w kontrolkach w oknie Raport
-                    dataLabel.Content = dataPrzegladu.ToString();
+                    dataLabel.Content = dataPrzegladu.ToString("yyyy-MM-dd");
                     imieLabel.Content = imieDiagnosty;
                     nazwiskoLabel.Content = nazwiskoDiagnosty;
                     markaLabel.Content = markaPojazdu;
