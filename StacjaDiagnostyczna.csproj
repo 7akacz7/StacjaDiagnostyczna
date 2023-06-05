@@ -193,6 +193,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="nie.PNG" />
+    <Resource Include="tak.PNG" />
     <Resource Include="auto.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

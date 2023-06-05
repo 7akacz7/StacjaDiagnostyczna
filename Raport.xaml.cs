@@ -40,6 +40,7 @@ namespace StacjaDiagnostyczna
 
                 // Wykonanie zapytania i odczytanie danych
                 SqlDataReader reader = command.ExecuteReader();
+                
                 if (reader.Read())
                 {
                     // Pobranie danych z wiersza
@@ -47,16 +48,20 @@ namespace StacjaDiagnostyczna
                     int idDiagnosty = (int)reader["Id_Diagnosty"];
                     int idPojazdu = (int)reader["Id_Pojazdu"];
                     int idWlasciciela = 0; // Zmienna przechowująca Id_Wlasciciela
+                    bool wynikPrzegladu = (bool)reader["wynik"];
+                    object uwagiObject = reader["Uwagi"];
+                    string uwagiText = uwagiObject != DBNull.Value ? (string)uwagiObject : string.Empty;
 
                     reader.Close(); // Zamknięcie SqlDataReader
 
                     // Pobranie danych Pojazdu
-                    string queryPojazd = $"SELECT Marka, Model, Rocznik, Numer_Rejestracyjny, Id_Wlasciciela FROM Pojazd WHERE Id_Pojazdu = {idPojazdu}";
+                    string queryPojazd = $"SELECT Marka, Model, Rocznik, Numer_Rejestracyjny, Przebieg, Id_Wlasciciela FROM Pojazd WHERE Id_Pojazdu = {idPojazdu}";
                     SqlCommand commandPojazd = new SqlCommand(queryPojazd, connection);
                     SqlDataReader readerPojazd = commandPojazd.ExecuteReader();
                     string markaPojazdu = string.Empty;
                     string modelPojazdu = string.Empty;
                     int rocznikPojazdu = 0;
+                    decimal przebieg = 0;
                     string numerRejestracyjnyPojazdu = string.Empty;
                     if (readerPojazd.Read())
                     {
@@ -64,6 +69,7 @@ namespace StacjaDiagnostyczna
                         modelPojazdu = (string)readerPojazd["Model"];
                         rocznikPojazdu = (int)readerPojazd["Rocznik"];
                         numerRejestracyjnyPojazdu = (string)readerPojazd["Numer_Rejestracyjny"];
+                        przebieg = (decimal)readerPojazd["Przebieg"];
                         idWlasciciela = (int)readerPojazd["Id_Wlasciciela"];
                     }
                     readerPojazd.Close();
@@ -101,14 +107,24 @@ namespace StacjaDiagnostyczna
                     markaLabel.Content = markaPojazdu;
                     modelLabel.Content = modelPojazdu;
                     rocznikLabel.Content = rocznikPojazdu.ToString();
+                    przebiegLabel.Content = przebieg.ToString();
                     numer_RejestracyjnyLabel.Content = numerRejestracyjnyPojazdu;
+                    uwagiTextBox.Text = uwagiText;
                     imieLabel1.Content = imieWlasciciela;
                     nazwiskoLabel1.Content = nazwiskoWlasciciela;
+
+                    if (wynikPrzegladu)
+                    {
+                        wynikImage.Source = new BitmapImage(new Uri("tak.png", UriKind.Relative));
+                    }
+                    else
+                    {
+                        wynikImage.Source = new BitmapImage(new Uri("nie.png", UriKind.Relative));
+                    }
                 }
 
                 reader.Close();
             }
-           
         }
     }
 }

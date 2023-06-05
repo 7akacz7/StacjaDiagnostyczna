@@ -68,18 +68,27 @@ namespace StacjaDiagnostyczna
 
                 if (int.TryParse(przebiegTextBox.Text, out int nowyPrzebieg) && nowyPrzebieg >= pojazd.Przebieg)
                 {
+                    Przeglad existingPrzeglad = context.Przeglad.FirstOrDefault(p => p.Pojazd.Numer_Rejestracyjny == numerRejestracyjny);
 
-                    Przeglad newPrzeglad = new Przeglad
+                    if (existingPrzeglad != null)
                     {
-                        Id_Przegladu = lastPrzegladId + 1,
-                        Data = data,
-                        Pojazd = pojazd,
-                        ID_Diagnosty = idDiagnosty,
-                        Wynik = wynik,
-                        Uwagi = uwagi
-                    };
+                        existingPrzeglad.Wynik = wynik;
+                        existingPrzeglad.Uwagi = uwagi;
+                    }
+                    else
+                    {
+                        Przeglad newPrzeglad = new Przeglad
+                        {
+                            Id_Przegladu = lastPrzegladId + 1,
+                            Data = data,
+                            Pojazd = pojazd,
+                            ID_Diagnosty = idDiagnosty,
+                            Wynik = wynik,
+                            Uwagi = uwagi
+                        };
 
-                    context.Przeglad.Add(newPrzeglad);
+                        context.Przeglad.Add(newPrzeglad);
+                    }
                     pojazd.Przebieg = nowyPrzebieg;
                     context.SaveChanges();
                     

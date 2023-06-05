@@ -19,6 +19,8 @@
         <CollectionViewSource x:Key="przegladViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
         <CollectionViewSource x:Key="wlascicielViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Wlasciciel}}"/>
         <CollectionViewSource x:Key="wlascicielViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Wlasciciel}}"/>
+        <CollectionViewSource x:Key="pojazdViewSource4" d:DesignSource="{d:DesignInstance {x:Type local:Pojazd}}"/>
+        <CollectionViewSource x:Key="przegladViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource diagnostaViewSource1}">
         <Grid x:Name="grid1" DataContext="{StaticResource diagnostaViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,63,0,0">
@@ -76,7 +78,7 @@
             <Label Grid.Column="0" Content="Rocznik:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label x:Name="rocznikLabel" Grid.Column="1" Content="{Binding Rocznik}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
         </Grid>
-        <Grid x:Name="grid6" DataContext="{StaticResource pojazdViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,154,0,0">
+        <Grid x:Name="grid6" DataContext="{StaticResource pojazdViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="277,153,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -130,6 +132,30 @@
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Nazwisko:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label x:Name="nazwiskoLabel1" Grid.Column="1" Content="{Binding Nazwisko}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid11" DataContext="{StaticResource pojazdViewSource4}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,215,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Przebieg:" HorizontalAlignment="Left" Margin="-4,0,0,0" Grid.Row="0" VerticalAlignment="Top"/>
+            <Label x:Name="przebiegLabel" Grid.Column="1" Content="{Binding Przebieg}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+
+        </Grid>
+        <Image x:Name="wynikImage" HorizontalAlignment="Left" Height="100" Margin="653,309,0,0" VerticalAlignment="Top" Width="100"/>
+        <Grid x:Name="grid12" DataContext="{StaticResource przegladViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="262,198,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Uwagi:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="uwagiTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="134" Margin="3,0,0,0" Grid.Row="0" Text="{Binding Uwagi, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="160"/>
         </Grid>
     </Grid>
 </Window>
