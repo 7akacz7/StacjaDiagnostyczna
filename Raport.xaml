@@ -157,5 +157,6 @@
             <Label Grid.Column="0" Content="Uwagi:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="uwagiTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="134" Margin="3,0,0,0" Grid.Row="0" Text="{Binding Uwagi, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="160"/>
         </Grid>
+        <Button Content="End" HorizontalAlignment="Left" Height="41" Margin="172,371,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
     </Grid>
 </Window>

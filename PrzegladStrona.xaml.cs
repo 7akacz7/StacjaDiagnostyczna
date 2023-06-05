@@ -51,6 +51,7 @@ namespace StacjaDiagnostyczna
             bool wynik = wynikCheckBox.IsChecked.GetValueOrDefault();
             string numerRejestracyjny = numer_RejestracyjnyTextBox.Text;
             string uwagi = uwagiTextBox.Text;
+           
             // Pobierz ID_Diagnosty na podstawie wybranego elementu z peopleComboBox
             int idDiagnosty = context.Diagnosta.FirstOrDefault(d => d.Imie == selectedImie)?.Id_Diagnosty ?? 0;
 
@@ -68,33 +69,23 @@ namespace StacjaDiagnostyczna
 
                 if (int.TryParse(przebiegTextBox.Text, out int nowyPrzebieg) && nowyPrzebieg >= pojazd.Przebieg)
                 {
-                    Przeglad existingPrzeglad = context.Przeglad.FirstOrDefault(p => p.Pojazd.Numer_Rejestracyjny == numerRejestracyjny);
 
-                    if (existingPrzeglad != null)
-                    {
-                        existingPrzeglad.Wynik = wynik;
-                        existingPrzeglad.Uwagi = uwagi;
-                    }
-                    else
-                    {
-                        Przeglad newPrzeglad = new Przeglad
-                        {
-                            Id_Przegladu = lastPrzegladId + 1,
-                            Data = data,
-                            Pojazd = pojazd,
-                            ID_Diagnosty = idDiagnosty,
-                            Wynik = wynik,
-                            Uwagi = uwagi
-                        };
+                    int wynikValue = wynik ? 1 : 0;
+                    string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Stacja;Integrated Security=True;";
+                    string query = $"INSERT INTO Przeglad VALUES({lastPrzegladId + 1}, '{data.ToString("yyyy-MM-dd")}', {pojazd.Id_Pojazdu}, {idDiagnosty}, {wynikValue}, '{uwagi}')";
 
-                        context.Przeglad.Add(newPrzeglad);
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.ExecuteNonQuery();
                     }
                     pojazd.Przebieg = nowyPrzebieg;
                     context.SaveChanges();
                     
                     Raport raport = new Raport();
                     raport.ShowDialog();
-
+                    
                 }
                 else
                 {
