@@ -169,8 +169,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Diagnosta.datasource" />
     <None Include="Properties\DataSources\Pojazd.datasource" />
     <None Include="Properties\DataSources\Przeglad.datasource" />
+    <None Include="Properties\DataSources\Wlasciciel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

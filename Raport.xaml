@@ -5,8 +5,131 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StacjaDiagnostyczna"
         mc:Ignorable="d"
-        Title="Raport" Height="450" Width="800">
-    <Grid>
-        
+        Title="Raport" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="diagnostaViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Diagnosta}}"/>
+        <CollectionViewSource x:Key="diagnostaViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Diagnosta}}"/>
+        <CollectionViewSource x:Key="diagnostaViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Diagnosta}}"/>
+        <CollectionViewSource x:Key="diagnostaViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:Diagnosta}}"/>
+        <CollectionViewSource x:Key="pojazdViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Pojazd}}"/>
+        <CollectionViewSource x:Key="pojazdViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Pojazd}}"/>
+        <CollectionViewSource x:Key="pojazdViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Pojazd}}"/>
+        <CollectionViewSource x:Key="pojazdViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:Pojazd}}"/>
+        <CollectionViewSource x:Key="przegladViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="przegladViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <CollectionViewSource x:Key="wlascicielViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Wlasciciel}}"/>
+        <CollectionViewSource x:Key="wlascicielViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Wlasciciel}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource diagnostaViewSource1}">
+        <Grid x:Name="grid1" DataContext="{StaticResource diagnostaViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,63,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Imie:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="imieLabel" Grid.Column="1" Content="{Binding Imie}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid2" DataContext="{StaticResource diagnostaViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="609,89,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Nazwisko:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="nazwiskoLabel" Grid.Column="1" Content="{Binding Nazwisko}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource pojazdViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,127,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Marka:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="markaLabel" Grid.Column="1" Content="{Binding Marka}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid4" DataContext="{StaticResource pojazdViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="63,154,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Model:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="modelLabel" Grid.Column="1" Content="{Binding Model}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid5" DataContext="{StaticResource pojazdViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,181,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Rocznik:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="rocznikLabel" Grid.Column="1" Content="{Binding Rocznik}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid6" DataContext="{StaticResource pojazdViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,154,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Numer Rejestracyjny:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="numer_RejestracyjnyLabel" Grid.Column="1" Content="{Binding Numer_Rejestracyjny}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid7" DataContext="{StaticResource przegladViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,339,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Wynik:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="wynikLabel" Grid.Column="1" Content="{Binding Wynik}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid8" DataContext="{StaticResource przegladViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,34,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Data:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="dataLabel" Grid.Column="1" Content="{Binding Data}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid9" DataContext="{StaticResource wlascicielViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,293,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Imie:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="imieLabel1" Grid.Column="1" Content="{Binding Imie}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid10" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,314,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Nazwisko:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label x:Name="nazwiskoLabel1" Grid.Column="1" Content="{Binding Nazwisko}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>
