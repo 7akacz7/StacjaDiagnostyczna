@@ -40,7 +40,7 @@ namespace StacjaDiagnostyczna
 
                 // Wykonanie zapytania i odczytanie danych
                 SqlDataReader reader = command.ExecuteReader();
-                
+
                 if (reader.Read())
                 {
                     // Pobranie danych z wiersza
@@ -109,7 +109,7 @@ namespace StacjaDiagnostyczna
                     rocznikLabel.Content = rocznikPojazdu.ToString();
                     przebiegLabel.Content = przebieg.ToString();
                     numer_RejestracyjnyLabel.Content = numerRejestracyjnyPojazdu;
-                    uwagiTextBox.Text = uwagiText;
+                    uwagiLabel.Content = uwagiText;
                     imieLabel1.Content = imieWlasciciela;
                     nazwiskoLabel1.Content = nazwiskoWlasciciela;
 
@@ -125,11 +125,23 @@ namespace StacjaDiagnostyczna
 
                 reader.Close();
             }
+            System.Windows.Data.CollectionViewSource przegladViewSource3 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("przegladViewSource3")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // przegladViewSource3.Źródło = [ogólne źródło danych]
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != this && window.GetType() != typeof(Raport))
+                {
+                    window.Close();
+                }
+            }
+            // Zamknięcie okna Raport, jeśli istnieje
+            Raport raportWindow = Application.Current.Windows.OfType<Raport>().FirstOrDefault();
+            raportWindow?.Close();
         }
     }
 }
