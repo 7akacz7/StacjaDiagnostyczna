@@ -15,7 +15,7 @@
         <CollectionViewSource x:Key="wlascicielViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Wlasciciel}}"/>
     </Window.Resources>
     <Grid>
-        <Grid x:Name="grid1" DataContext="{StaticResource pojazdViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,153,0,0">
+        <Grid x:Name="grid1" DataContext="{StaticResource pojazdViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="87,101,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -26,7 +26,7 @@
             <Label Grid.Column="0" Content="Marka:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="markaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Marka, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Grid x:Name="grid2" DataContext="{StaticResource pojazdViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="273,154,0,0">
+        <Grid x:Name="grid2" DataContext="{StaticResource pojazdViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,102,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -37,7 +37,7 @@
             <Label Grid.Column="0" Content="Model:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="modelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Model, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Grid x:Name="grid3" DataContext="{StaticResource pojazdViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="494,153,0,0">
+        <Grid x:Name="grid3" DataContext="{StaticResource pojazdViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="521,101,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -48,7 +48,7 @@
             <Label Grid.Column="0" Content="Rocznik:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="rocznikTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Rocznik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Grid x:Name="grid4" DataContext="{StaticResource wlascicielViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="76,301,0,0">
+        <Grid x:Name="grid4" DataContext="{StaticResource wlascicielViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,249,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -59,8 +59,8 @@
             <Label Grid.Column="0" Content="PESEL:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="pESELTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding PESEL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Button Content="Sprzawdź" HorizontalAlignment="Left" Height="45" Margin="273,288,0,0" VerticalAlignment="Top" Width="160"/>
-        <Grid x:Name="grid5" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="523,285,0,0">
+        <Button Content="Sprzawdź" HorizontalAlignment="Left" Height="45" Margin="300,236,0,0" VerticalAlignment="Top" Width="160"/>
+        <Grid x:Name="grid5" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,233,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -71,7 +71,7 @@
             <Label Grid.Column="0" Content="Imie:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label x:Name="imieLabel" Grid.Column="1" Content="{Binding Imie}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
         </Grid>
-        <Grid x:Name="grid6" DataContext="{StaticResource wlascicielViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="522,316,0,0">
+        <Grid x:Name="grid6" DataContext="{StaticResource wlascicielViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="549,264,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -82,6 +82,7 @@
             <Label Grid.Column="0" Content="Nazwisko:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label x:Name="nazwiskoLabel" Grid.Column="1" Content="{Binding Nazwisko}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
         </Grid>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Height="59" Margin="591,348,0,0" VerticalAlignment="Top" Width="137"/>
 
     </Grid>
 </Window>

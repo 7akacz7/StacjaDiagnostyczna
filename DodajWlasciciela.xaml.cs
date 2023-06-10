@@ -27,6 +27,18 @@ namespace StacjaDiagnostyczna
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
+            System.Windows.Data.CollectionViewSource wlascicielViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // wlascicielViewSource.Źródło = [ogólne źródło danych]
+            System.Windows.Data.CollectionViewSource wlascicielViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource1")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // wlascicielViewSource1.Źródło = [ogólne źródło danych]
+            System.Windows.Data.CollectionViewSource wlascicielViewSource2 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource2")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // wlascicielViewSource2.Źródło = [ogólne źródło danych]
+            System.Windows.Data.CollectionViewSource wlascicielViewSource3 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource3")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // wlascicielViewSource3.Źródło = [ogólne źródło danych]
         }
     }
 }
