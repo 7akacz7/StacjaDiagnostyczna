@@ -71,52 +71,7 @@ namespace StacjaDiagnostyczna
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            // Pobierz wartości wpisane przez użytkownika
-            string marka = markaTextBox.Text;
-            string model = modelTextBox.Text;
-           
-            string peselText = pESELTextBox.Text;
-            decimal.TryParse(peselText, out decimal pesel);
-            string rocznik = rocznikTextBox.Text;
-
-            // Sprawdź, czy właściciel o podanym numerze PESEL istnieje w bazie danych
-            using (var context = new StacjaEntities())
-            {
-                // Pobierz ostatnią wartość Id_Pojazdu
-                int lastPojazdId = context.Pojazd.Max(p => p.Id_Pojazdu);
-
-                // Sprawdź, czy istnieje właściciel o podanym numerze PESEL
-                var wlasciciel = context.Wlasciciel.FirstOrDefault(w => w.PESEL == pesel);
-
-                if (wlasciciel != null)
-                {
-                    // Jeśli właściciel został znaleziony, dodaj nowy pojazd do bazy danych
-                    var pojazd = new Pojazd
-                    {
-                        Id_Pojazdu = lastPojazdId + 1,
-                        Marka = marka,
-                        Model = model,
-                        Numer_Rejestracyjny = numerRejestracyjny,
-                        Id_Wlasciciela = wlasciciel.Id_Wlasciciela,
-                        Przebieg = 0,
-                        Rocznik = int.Parse(rocznik)
-                    };
-
-                    context.Pojazd.Add(pojazd);
-                    context.SaveChanges();
-
-                    this.Close();
-                }
-                else
-                {
-                    // Numer PESEL nie istnieje w bazie danych, otwórz okno DodajWlasciciela
-                    DodajWlasciciela dodajWlascicielaWindow = new DodajWlasciciela();
-                    dodajWlascicielaWindow.ShowDialog();
-
-                    // Po zamknięciu okna DodajWlasciciela możesz wykonać dodatkowe czynności
-                    // ...
-                }
-            }
+            
         }
     }
 }
