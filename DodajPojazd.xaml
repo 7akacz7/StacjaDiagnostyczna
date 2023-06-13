@@ -59,7 +59,7 @@
             <Label Grid.Column="0" Content="PESEL:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="pESELTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding PESEL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Button Content="Sprzawdź" HorizontalAlignment="Left" Height="45" Margin="300,236,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button Content="Sprzawdź" HorizontalAlignment="Left" Height="45" Margin="300,236,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click"/>
         <Grid x:Name="grid5" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,233,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -82,7 +82,7 @@
             <Label Grid.Column="0" Content="Nazwisko:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label x:Name="nazwiskoLabel" Grid.Column="1" Content="{Binding Nazwisko}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
         </Grid>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Height="59" Margin="591,348,0,0" VerticalAlignment="Top" Width="137"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Height="59" Margin="591,348,0,0" VerticalAlignment="Top" Width="137" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

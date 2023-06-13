@@ -111,7 +111,7 @@ namespace StacjaDiagnostyczna
             else
             {
                 // Otwórz okno DodajPojazd.xaml
-                DodajPojazd dodajPojazdWindow = new DodajPojazd();
+                DodajPojazd dodajPojazdWindow = new DodajPojazd(numerRejestracyjny);
                 dodajPojazdWindow.ShowDialog();
             }
         }
