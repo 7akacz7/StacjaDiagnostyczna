@@ -18,7 +18,7 @@ namespace StacjaDiagnostyczna
     public partial class DodajPojazd : Window
     {
         private string numerRejestracyjny;
-        public event EventHandler WlascicielDodany; // Dodajemy zdarzenie WlascicielDodany
+        
 
         public DodajPojazd(string numerRejestracyjny)
         {
@@ -110,20 +110,12 @@ namespace StacjaDiagnostyczna
                 {
                     // Numer PESEL nie istnieje w bazie danych, otwórz okno DodajWlasciciela
                     DodajWlasciciela dodajWlascicielaWindow = new DodajWlasciciela(pesel);
-                    dodajWlascicielaWindow.WlascicielDodany += DodajWlascicielaWindow_WlascicielDodany; // Rejestrujemy obsługę zdarzenia WlascicielDodany
-                    
                     dodajWlascicielaWindow.ShowDialog();
                 }
             }
         }
 
-        private void DodajWlascicielaWindow_WlascicielDodany(object sender, EventArgs e)
-        {
-            // Uaktualnij dane po dodaniu właściciela
-            imieLabel.Content = ((DodajWlasciciela)sender).Imie;
-            nazwiskoLabel.Content = ((DodajWlasciciela)sender).Nazwisko;
-            pESELTextBox.Text = ((DodajWlasciciela)sender).pesel.ToString();
-        }
+      
 
     }
 }
