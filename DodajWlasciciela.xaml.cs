@@ -19,26 +19,47 @@ namespace StacjaDiagnostyczna
     /// </summary>
     public partial class DodajWlasciciela : Window
     {
-        public DodajWlasciciela()
+        private decimal pesel;
+        public DodajWlasciciela(decimal pesel)
         {
             InitializeComponent();
+            this.pesel = pesel;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            System.Windows.Data.CollectionViewSource wlascicielViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource")));
-            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
-            // wlascicielViewSource.Źródło = [ogólne źródło danych]
-            System.Windows.Data.CollectionViewSource wlascicielViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource1")));
-            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
-            // wlascicielViewSource1.Źródło = [ogólne źródło danych]
-            System.Windows.Data.CollectionViewSource wlascicielViewSource2 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource2")));
-            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
-            // wlascicielViewSource2.Źródło = [ogólne źródło danych]
-            System.Windows.Data.CollectionViewSource wlascicielViewSource3 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wlascicielViewSource3")));
-            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
-            // wlascicielViewSource3.Źródło = [ogólne źródło danych]
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Pobierz dane z TextBoxów
+            string imie = imieTextBox.Text;
+            string nazwisko = nazwiskoTextBox.Text;
+            string telefon = telefonTextBox.Text;
+
+            // Dodaj nowego właściciela do tabeli Wlasciciel
+            using (var context = new StacjaEntities())
+            {
+                int idWlasciciela = context.Wlasciciel.Max(w => w.Id_Wlasciciela) + 1;
+
+                Wlasciciel wlasciciel = new Wlasciciel()
+                {
+                    Id_Wlasciciela = idWlasciciela,
+                    Imie = imie,
+                    Nazwisko = nazwisko,
+                    TELEFON = telefon,
+                    PESEL = pesel
+                };
+
+                context.Wlasciciel.Add(wlasciciel);
+                context.SaveChanges();
+
+                MessageBox.Show("Właściciel został dodany do bazy danych.");
+
+                // Zamknij okno DodajWlasciciela
+                this.Close();
+            }
         }
     }
 }

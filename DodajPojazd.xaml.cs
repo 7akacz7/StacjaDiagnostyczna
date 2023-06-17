@@ -55,7 +55,7 @@ namespace StacjaDiagnostyczna
                     else
                     {
                         // Numer PESEL nie istnieje w bazie danych, otwórz okno DodajWlasciciela
-                        DodajWlasciciela dodajWlascicielaWindow = new DodajWlasciciela();
+                        DodajWlasciciela dodajWlascicielaWindow = new DodajWlasciciela(pesel);
                         dodajWlascicielaWindow.ShowDialog();
 
                         // Po zamknięciu okna DodajWlasciciela możesz wykonać dodatkowe czynności
@@ -110,7 +110,7 @@ namespace StacjaDiagnostyczna
                 else
                 {
                     // Numer PESEL nie istnieje w bazie danych, otwórz okno DodajWlasciciela
-                    DodajWlasciciela dodajWlascicielaWindow = new DodajWlasciciela();
+                    DodajWlasciciela dodajWlascicielaWindow = new DodajWlasciciela(pesel);
                     dodajWlascicielaWindow.ShowDialog();
 
                     // Po zamknięciu okna DodajWlasciciela możesz wykonać dodatkowe czynności
