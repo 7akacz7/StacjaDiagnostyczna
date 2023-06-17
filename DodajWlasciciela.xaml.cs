@@ -19,7 +19,10 @@ namespace StacjaDiagnostyczna
     /// </summary>
     public partial class DodajWlasciciela : Window
     {
-        private decimal pesel;
+        public event EventHandler WlascicielDodany; // Dodajemy zdarzenie WlascicielDodany
+        public decimal pesel;
+        public string Imie { get; private set; }
+        public string Nazwisko { get; private set; }
         public DodajWlasciciela(decimal pesel)
         {
             InitializeComponent();
@@ -56,10 +59,15 @@ namespace StacjaDiagnostyczna
                 context.SaveChanges();
 
                 MessageBox.Show("Właściciel został dodany do bazy danych.");
-
+                Imie = imieTextBox.Text;
+                Nazwisko = nazwiskoTextBox.Text;
                 // Zamknij okno DodajWlasciciela
+                this.DialogResult = true;
+                WlascicielDodany?.Invoke(this, EventArgs.Empty);
                 this.Close();
             }
         }
+
+    
     }
 }
