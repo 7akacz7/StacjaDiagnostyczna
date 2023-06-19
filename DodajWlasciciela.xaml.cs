@@ -65,6 +65,9 @@ namespace StacjaDiagnostyczna
             }
         }
 
-    
+        private void telefonTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            telefonTextBox.MaxLength = 9;
+        }
     }
 }
