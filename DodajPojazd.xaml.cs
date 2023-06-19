@@ -118,7 +118,7 @@ namespace StacjaDiagnostyczna
         private void pESELTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             pESELTextBox.MaxLength = 11;
-            pESELTextBox.MinLines = 11;
+
         }
     }
 }
