@@ -38,10 +38,13 @@
     <Grid DataContext="{StaticResource przegladViewSource}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="75" />
-            <RowDefinition Height="625" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button HorizontalAlignment="Right" Margin="0,260,622,312" Name="saveButton" Width="131" Click="saveButton_Click" Grid.Row="1" Visibility="Hidden">Zapisz</Button>
+        <Grid.Background>
+            <ImageBrush ImageSource="auto.jpg"/>
+        </Grid.Background>
+        <Button Name="saveButton" Click="saveButton_Click" Grid.Row="1" Margin="287,216,303,33" FontSize="30" Visibility="Hidden">Zapisz</Button>
         <Grid x:Name="grid2" DataContext="{StaticResource pojazdViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,59,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -60,8 +63,8 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         </Grid>
-        <Button x:Name="sprawdz" Content="Sprawdź" HorizontalAlignment="Left" Height="41" Margin="280,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="136" Click="sprawdz_Click"/>
-        <Grid x:Name="grid3" DataContext="{StaticResource pojazdViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="221,38,0,0">
+        <Button x:Name="sprawdz" Content="Sprawdź" HorizontalAlignment="Left" Height="38" Margin="392,22,0,0" VerticalAlignment="Top" Width="122" Click="sprawdz_Click" Grid.RowSpan="2" FontSize="16"/>
+        <Grid x:Name="grid3" DataContext="{StaticResource pojazdViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="19,23,0,0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -69,8 +72,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Content="Numer Rejestracyjny:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="numer_RejestracyjnyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Numer_Rejestracyjny, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="Numer Rejestracyjny:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="numer_RejestracyjnyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="3,0,0,0" Grid.Row="0" Text="{Binding Numer_Rejestracyjny, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="158" Background="#FFE0DADA" FontSize="18"/>
         </Grid>
         <Grid x:Name="grid5" DataContext="{StaticResource przegladViewSource12}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="236,150,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -81,7 +84,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="grid7" DataContext="{StaticResource pojazdViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="389,107,0,0" Grid.Row="1">
+        <Grid x:Name="grid7" DataContext="{StaticResource pojazdViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="564,3,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -89,10 +92,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Content="Przebieg:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="przebiegTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Przebieg, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="Przebieg:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="przebiegTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Przebieg, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Grid x:Name="grid1" DataContext="{StaticResource przegladViewSource18}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="160,107,0,0" Grid.Row="1">
+        <Grid x:Name="grid1" DataContext="{StaticResource przegladViewSource18}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="567,7,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -100,10 +103,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Content="Data:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="Data:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="16"/>
             <DatePicker x:Name="dataDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding Data, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
         </Grid>
-        <Grid x:Name="grid6" DataContext="{StaticResource przegladViewSource19}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,172,0,0" Grid.Row="1">
+        <Grid x:Name="grid6" DataContext="{StaticResource przegladViewSource19}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,52,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -111,10 +114,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Content="Uwagi:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="uwagiTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="75" Margin="10,-10,0,0" Text="{Binding Uwagi, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="167"/>
+            <Label Grid.Column="0" Content="Uwagi:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="uwagiTextBox" Grid.Column="1" HorizontalAlignment="Center" Height="65" Margin="0,-10,0,0" Background="#FFE0DADA" FontSize="16" Text="{Binding Uwagi, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="157"/>
         </Grid>
-        <Grid x:Name="grid8" DataContext="{StaticResource przegladViewSource20}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="266,266,0,0" Grid.Row="1">
+        <Grid x:Name="grid8" DataContext="{StaticResource przegladViewSource20}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,50,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -122,7 +125,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Content="Czy przeszedł badanie?" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="Czy przeszedł badanie?" HorizontalAlignment="Left" Margin="-32,0,0,0" VerticalAlignment="Center" FontSize="16"/>
             <CheckBox x:Name="wynikCheckBox" Grid.Column="1" Content="" HorizontalAlignment="Left" IsChecked="{Binding Wynik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
