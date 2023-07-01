@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Raport" Height="450" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
+        <Style TargetType="Window">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="SlateGray"/>
+        </Style>
         <CollectionViewSource x:Key="diagnostaViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Diagnosta}}"/>
         <CollectionViewSource x:Key="diagnostaViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Diagnosta}}"/>
         <CollectionViewSource x:Key="diagnostaViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Diagnosta}}"/>
@@ -22,12 +26,8 @@
         <CollectionViewSource x:Key="pojazdViewSource4" d:DesignSource="{d:DesignInstance {x:Type local:Pojazd}}"/>
         <CollectionViewSource x:Key="przegladViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
         <CollectionViewSource x:Key="przegladViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
-        <Style TargetType="Window">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Background" Value="SlateGray"/>
-        </Style>
     </Window.Resources>
-    <Grid DataContext="{StaticResource diagnostaViewSource1}">
+    <Grid DataContext="{StaticResource diagnostaViewSource1}" Background="SlateGray">
         <Grid x:Name="grid1" DataContext="{StaticResource diagnostaViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,63,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

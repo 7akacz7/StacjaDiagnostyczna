@@ -33,7 +33,7 @@
         <CollectionViewSource x:Key="przegladViewSource18" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
         <CollectionViewSource x:Key="przegladViewSource19" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
         <CollectionViewSource x:Key="przegladViewSource20" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
-        
+
     </Page.Resources>
 
     <Grid DataContext="{StaticResource przegladViewSource}" Background="SlateGray">
@@ -128,5 +128,6 @@
             <Label Grid.Column="0" Content="Czy przeszedł badanie?" HorizontalAlignment="Left" Margin="-32,0,0,0" VerticalAlignment="Center" FontSize="16"/>
             <CheckBox x:Name="wynikCheckBox" Grid.Column="1" Content="" HorizontalAlignment="Left" IsChecked="{Binding Wynik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
         </Grid>
+        <Button Content="Zamknij" HorizontalAlignment="Left" Height="55" Margin="22,323,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="159" FontSize="20" Click="Button_Click"/>
     </Grid>
 </Page>

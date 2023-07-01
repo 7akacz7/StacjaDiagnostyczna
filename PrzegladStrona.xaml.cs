@@ -154,6 +154,12 @@ namespace StacjaDiagnostyczna
                 textBox.CaretIndex = newText.Length; // Ustawianie kursora na końcu tekstu
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Zamknięcie aplikacji
+            Application.Current.Shutdown();
+        }
     }
 }
 
