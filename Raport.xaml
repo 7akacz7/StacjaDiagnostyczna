@@ -22,6 +22,10 @@
         <CollectionViewSource x:Key="pojazdViewSource4" d:DesignSource="{d:DesignInstance {x:Type local:Pojazd}}"/>
         <CollectionViewSource x:Key="przegladViewSource2" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
         <CollectionViewSource x:Key="przegladViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:Przeglad}}"/>
+        <Style TargetType="Window">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="SlateGray"/>
+        </Style>
     </Window.Resources>
     <Grid DataContext="{StaticResource diagnostaViewSource1}">
         <Grid x:Name="grid1" DataContext="{StaticResource diagnostaViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,63,0,0">
@@ -79,7 +83,7 @@
             <Label Grid.Column="0" Content="Rocznik:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label x:Name="rocznikLabel" Grid.Column="1" Content="{Binding Rocznik}" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
         </Grid>
-        <Grid x:Name="grid6" DataContext="{StaticResource pojazdViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="277,153,0,0">
+        <Grid x:Name="grid6" DataContext="{StaticResource pojazdViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,155,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -147,8 +151,8 @@
 
         </Grid>
         <Image x:Name="wynikImage" HorizontalAlignment="Left" Height="100" Margin="653,309,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Content="Zamknij" HorizontalAlignment="Left" Height="41" Margin="172,371,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
-        <Grid x:Name="grid12" DataContext="{StaticResource przegladViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="277,205,0,0">
+        <Button Content="Zamknij" HorizontalAlignment="Left" Height="41" Margin="42,383,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
+        <Grid x:Name="grid12" DataContext="{StaticResource przegladViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,207,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
