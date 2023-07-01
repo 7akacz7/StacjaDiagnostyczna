@@ -20,16 +20,25 @@ using System.Windows.Markup;
 
 namespace StacjaDiagnostyczna
 {
+ /// <summary>
+ /// Strona przeglądu pojazdu.
+ /// </summary>
     public partial class PrzegladStrona : Page
     {
         StacjaEntities context = new StacjaEntities();
         private System.Windows.Data.CollectionViewSource przegladViewSource;
 
+        /// <summary>
+        /// Inicjalizuje nową instancję klasy PrzegladStrona.
+        /// </summary>
         public PrzegladStrona()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Obsługa zdarzenia Loaded strony.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             przegladViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("przegladViewSource")));
@@ -37,12 +46,19 @@ namespace StacjaDiagnostyczna
 
         string selectedImie;
 
+        /// <summary>
+        /// Inicjalizuje nową instancję klasy PrzegladStrona z wybranym imieniem diagnosty.
+        /// </summary>
+        /// <param name="imie">Imię diagnosty.</param>
         public PrzegladStrona(string imie)
         {
             InitializeComponent();
             selectedImie = imie;
         }
 
+        /// <summary>
+        /// Obsługa zdarzenia kliknięcia przycisku "Zapisz".
+        /// </summary>
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -96,6 +112,9 @@ namespace StacjaDiagnostyczna
 
         }
 
+        /// <summary>
+        /// Obsługa zdarzenia kliknięcia przycisku "Sprawdź".
+        /// </summary>
         private void sprawdz_Click(object sender, RoutedEventArgs e)
         {
             string numerRejestracyjny = numer_RejestracyjnyTextBox.Text;
@@ -116,6 +135,9 @@ namespace StacjaDiagnostyczna
             }
         }
 
+        /// <summary>
+        /// Obsługa zdarzenia zmiany tekstu w TextBox przebiegTextBox.
+        /// </summary>
         private void przebiegTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)
