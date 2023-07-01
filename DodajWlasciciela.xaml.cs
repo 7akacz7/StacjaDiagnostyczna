@@ -15,24 +15,46 @@ using System.Windows.Shapes;
 namespace StacjaDiagnostyczna
 {
     /// <summary>
-    /// Logika interakcji dla klasy DodajWlasciciela.xaml
+    /// Okno dodawania nowego właściciela.
     /// </summary>
     public partial class DodajWlasciciela : Window
     {
+        /// <summary>
+        /// PESEL właściciela.
+        /// </summary>
         public decimal pesel;
+
+        /// <summary>
+        /// Imię właściciela.
+        /// </summary>
         public string Imie { get; private set; }
+
+        /// <summary>
+        /// Nazwisko właściciela.
+        /// </summary>
         public string Nazwisko { get; private set; }
+
+        /// <summary>
+        /// Inicjalizuje nową instancję klasy DodajWlasciciela.
+        /// </summary>
+        /// <param name="pesel">PESEL właściciela.</param>
         public DodajWlasciciela(decimal pesel)
         {
             InitializeComponent();
             this.pesel = pesel;
         }
 
+        /// <summary>
+        /// Obsługa zdarzenia Loaded okna.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            // Implementacja zdarzenia Loaded
         }
 
+        /// <summary>
+        /// Obsługa zdarzenia kliknięcia przycisku.
+        /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Pobieranie danych z TextBoxów
@@ -60,11 +82,14 @@ namespace StacjaDiagnostyczna
                 MessageBox.Show("Właściciel został dodany do bazy danych.");
                 Imie = imieTextBox.Text;
                 Nazwisko = nazwiskoTextBox.Text;
-                
+
                 this.Close();
             }
         }
 
+        /// <summary>
+        /// Obsługa zdarzenia zmiany tekstu w TextBoxie telefonu.
+        /// </summary>
         private void telefonTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             telefonTextBox.MaxLength = 9;
