@@ -68,6 +68,19 @@ namespace StacjaDiagnostyczna
         private void telefonTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             telefonTextBox.MaxLength = 9;
+            if (sender is TextBox textBox)
+            {
+                string newText = "";
+                foreach (char c in textBox.Text)
+                {
+                    if (char.IsDigit(c))
+                    {
+                        newText += c;
+                    }
+                }
+                textBox.Text = newText;
+                textBox.CaretIndex = newText.Length; // Ustawianie kursora na końcu tekstu
+            }
         }
     }
 }

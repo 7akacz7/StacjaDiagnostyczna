@@ -46,7 +46,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Rocznik:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="rocznikTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Rocznik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="138"/>
+            <TextBox x:Name="rocznikTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Rocznik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="138" TextChanged="rocznikTextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="grid4" DataContext="{StaticResource wlascicielViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,240,0,0">
             <Grid.ColumnDefinitions>

@@ -92,7 +92,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Przebieg:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="16"/>
-            <TextBox x:Name="przebiegTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Przebieg, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="przebiegTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Przebieg, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="przebiegTextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="grid1" DataContext="{StaticResource przegladViewSource18}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,113,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>
