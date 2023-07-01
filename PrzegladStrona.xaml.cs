@@ -46,13 +46,13 @@ namespace StacjaDiagnostyczna
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
 
-            // Pobierz dane z formularza
+            // Pobieranie danych z formularza
             DateTime data = dataDatePicker.SelectedDate.GetValueOrDefault();
             bool wynik = wynikCheckBox.IsChecked.GetValueOrDefault();
             string numerRejestracyjny = numer_RejestracyjnyTextBox.Text;
             string uwagi = uwagiTextBox.Text;
            
-            // Pobierz ID_Diagnosty na podstawie wybranego elementu z peopleComboBox
+            // Pobieranie ID_Diagnosty na podstawie wybranego elementu z peopleComboBox
             int idDiagnosty = context.Diagnosta.FirstOrDefault(d => d.Imie == selectedImie)?.Id_Diagnosty ?? 0;
 
             
@@ -61,7 +61,7 @@ namespace StacjaDiagnostyczna
             
 
             
-                // Pobierz obiekt Pojazd na podstawie Numeru Rejestracyjnego
+                // Pobieranie obiektu Pojazd na podstawie Numeru Rejestracyjnego
                 Pojazd pojazd = context.Pojazd.FirstOrDefault(p => p.Numer_Rejestracyjny == numerRejestracyjny);
 
                 if (pojazd != null && idDiagnosty != 0)
@@ -100,17 +100,17 @@ namespace StacjaDiagnostyczna
         {
             string numerRejestracyjny = numer_RejestracyjnyTextBox.Text;
 
-            // Sprawdź, czy Numer Rejestracyjny istnieje w tabeli Pojazd
+            // Sprawdzenie, czy Numer Rejestracyjny istnieje w tabeli Pojazd
             bool numerRejestracyjnyExists = context.Pojazd.Any(p => p.Numer_Rejestracyjny == numerRejestracyjny);
 
             if (numerRejestracyjnyExists)
             {
-                // Ustaw przycisk "Zapisz" jako widoczny
+                // Ustawianie przycisk "Zapisz" jako widoczny
                 saveButton.Visibility = Visibility.Visible;
             }
             else
             {
-                // Otwórz okno DodajPojazd.xaml
+                // Otwieranie okno DodajPojazd.xaml
                 DodajPojazd dodajPojazdWindow = new DodajPojazd(numerRejestracyjny);
                 dodajPojazdWindow.ShowDialog();
             }

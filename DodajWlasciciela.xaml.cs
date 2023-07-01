@@ -35,12 +35,12 @@ namespace StacjaDiagnostyczna
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Pobierz dane z TextBoxów
+            // Pobieranie danych z TextBoxów
             string imie = imieTextBox.Text;
             string nazwisko = nazwiskoTextBox.Text;
             string telefon = telefonTextBox.Text;
 
-            // Dodaj nowego właściciela do tabeli Wlasciciel
+            // Dodanie nowego właściciela do tabeli Wlasciciel
             using (var context = new StacjaEntities())
             {
                 int idWlasciciela = context.Wlasciciel.Max(w => w.Id_Wlasciciela) + 1;
@@ -60,7 +60,7 @@ namespace StacjaDiagnostyczna
                 MessageBox.Show("Właściciel został dodany do bazy danych.");
                 Imie = imieTextBox.Text;
                 Nazwisko = nazwiskoTextBox.Text;
-                // Zamknij okno DodajWlasciciela
+                
                 this.Close();
             }
         }

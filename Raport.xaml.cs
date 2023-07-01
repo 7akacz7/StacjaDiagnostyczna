@@ -126,8 +126,7 @@ namespace StacjaDiagnostyczna
                 reader.Close();
             }
             System.Windows.Data.CollectionViewSource przegladViewSource3 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("przegladViewSource3")));
-            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
-            // przegladViewSource3.Źródło = [ogólne źródło danych]
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
