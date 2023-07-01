@@ -18,8 +18,11 @@ namespace StacjaDiagnostyczna
     public partial class DodajPojazd : Window
     {
         private string numerRejestracyjny;
-        
 
+
+        /// <summary>
+        /// Inicjalizuje nową instancję klasy DodajPojazd.
+        /// </summary>
         public DodajPojazd(string numerRejestracyjny)
         {
             InitializeComponent();
@@ -31,7 +34,9 @@ namespace StacjaDiagnostyczna
 
 
         }
-
+        /// <summary>
+        /// Obsługa zdarzenia kliknięcia przycisku.
+        /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Pobieranie numer PESEL z TextBox
@@ -66,7 +71,9 @@ namespace StacjaDiagnostyczna
                 MessageBox.Show("Nieprawidłowy format numeru PESEL.");
             }
         }
-
+        /// <summary>
+        /// Obsługa zdarzenia kliknięcia przycisku.
+        /// </summary>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             // Pobieranie wartości wpisanych przez użytkownika
@@ -113,7 +120,9 @@ namespace StacjaDiagnostyczna
                 }
             }
         }
-
+        /// <summary>
+        /// Obsługa zdarzenia zmiany tekstu w TextBox pESELTextBox.
+        /// </summary>
         private void pESELTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             pESELTextBox.MaxLength = 11;
@@ -132,7 +141,9 @@ namespace StacjaDiagnostyczna
             }
 
         }
-
+        /// <summary>
+        /// Obsługa zdarzenia zmiany tekstu w TextBox rocznikTextBox.
+        /// </summary>
         private void rocznikTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             rocznikTextBox.MaxLength = 4;
