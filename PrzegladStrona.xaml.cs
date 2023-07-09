@@ -140,6 +140,7 @@ namespace StacjaDiagnostyczna
         /// </summary>
         private void przebiegTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            przebiegTextBox.MaxLength = 6;
             if (sender is TextBox textBox)
             {
                 string newText = "";

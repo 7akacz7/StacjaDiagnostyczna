@@ -110,6 +110,15 @@ namespace StacjaDiagnostyczna
                     context.Pojazd.Add(pojazd);
                     context.SaveChanges();
 
+                    // Znajdź instancję PrzegladStrona
+                    var przegladStrona = Application.Current.Windows.OfType<PrzegladStrona>().FirstOrDefault();
+
+                    if (przegladStrona != null)
+                    {
+                        // Zmień widoczność przycisku saveButton na widoczny
+                        przegladStrona.saveButton.Visibility = Visibility.Visible;
+                    }
+
                     this.Close();
                 }
                 else
