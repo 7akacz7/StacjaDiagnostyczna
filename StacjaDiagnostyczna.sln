@@ -5,12 +5,6 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacjaDiagnostyczna", "StacjaDiagnostyczna.csproj", "{16DFBB75-5817-4083-B067-B069A7EF6E4D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementy rozwiązania", "Elementy rozwiązania", "{A4B822B1-3AA4-4EBA-BB77-6F219EA9C9CC}"
-	ProjectSection(SolutionItems) = preProject
-		nie.PNG = nie.PNG
-		tak.PNG = tak.PNG
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

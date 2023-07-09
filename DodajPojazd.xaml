@@ -59,7 +59,7 @@
             <Label Grid.Column="0" Content="PESEL:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="pESELTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding PESEL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="138" TextChanged="pESELTextBox_TextChanged"/>
         </Grid>
-        <Button Content="Sprzawdź" HorizontalAlignment="Left" Height="45" Margin="300,236,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click" FontSize="20"/>
+        <Button Content="Sprawdź" HorizontalAlignment="Left" Height="45" Margin="300,236,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click" FontSize="20"/>
         <Grid x:Name="grid5" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,233,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
