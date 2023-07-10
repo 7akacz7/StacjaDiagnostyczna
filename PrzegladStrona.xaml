@@ -72,7 +72,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Numer Rejestracyjny:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="16"/>
-            <TextBox x:Name="numer_RejestracyjnyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="3,0,0,0" Grid.Row="0" Text="{Binding Numer_Rejestracyjny, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="158" Background="#FFE0DADA" FontSize="18"/>
+            <TextBox x:Name="numer_RejestracyjnyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="3,0,0,0" Grid.Row="0" Text="{Binding Numer_Rejestracyjny, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="158" Background="#FFE0DADA" FontSize="20"/>
         </Grid>
         <Grid x:Name="grid5" DataContext="{StaticResource przegladViewSource12}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="236,150,0,0" Grid.Row="1">
             <Grid.ColumnDefinitions>

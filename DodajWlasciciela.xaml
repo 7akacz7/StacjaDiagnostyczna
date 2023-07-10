@@ -13,7 +13,7 @@
         <CollectionViewSource x:Key="wlascicielViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:Wlasciciel}}"/>
     </Window.Resources>
     <Grid Background="SlateGray">
-        <Grid x:Name="grid1" DataContext="{StaticResource wlascicielViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,163,0,0">
+        <Grid x:Name="grid1" DataContext="{StaticResource wlascicielViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,163,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -22,9 +22,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Imie:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="imieTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Background="#FFE0DADA" FontSize="16" Text="{Binding Imie, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="154"/>
+            <TextBox x:Name="imieTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Background="#FFE0DADA" FontSize="20" Text="{Binding Imie, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="154"/>
         </Grid>
-        <Grid x:Name="grid2" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,163,0,0">
+        <Grid x:Name="grid2" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,163,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -33,9 +33,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Nazwisko:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="nazwiskoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Background="#FFE0DADA" FontSize="16" Text="{Binding Nazwisko, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="150"/>
+            <TextBox x:Name="nazwiskoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Background="#FFE0DADA" FontSize="20" Text="{Binding Nazwisko, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="150"/>
         </Grid>
-        <Grid x:Name="grid4" DataContext="{StaticResource wlascicielViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="540,164,0,0">
+        <Grid x:Name="grid4" DataContext="{StaticResource wlascicielViewSource3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="517,164,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -44,7 +44,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="TELEFON:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="telefonTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Background="#FFE0DADA" FontSize="16" Text="{Binding TELEFON, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="142" TextChanged="telefonTextBox_TextChanged"/>
+            <TextBox x:Name="telefonTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Background="#FFE0DADA" FontSize="20" Text="{Binding TELEFON, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="142" TextChanged="telefonTextBox_TextChanged"/>
         </Grid>
         <Button Content="Dodaj" HorizontalAlignment="Left" Height="57" Margin="493,292,0,0" VerticalAlignment="Top" Width="188" Click="Button_Click" FontSize="26"/>
 

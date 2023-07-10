@@ -24,7 +24,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Marka:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="markaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Marka, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144"/>
+            <TextBox x:Name="markaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="20" Text="{Binding Marka, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144"/>
         </Grid>
         <Grid x:Name="grid2" DataContext="{StaticResource pojazdViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,102,0,0">
             <Grid.ColumnDefinitions>
@@ -35,7 +35,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Model:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="modelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Model, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="142"/>
+            <TextBox x:Name="modelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="20" Text="{Binding Model, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="142"/>
         </Grid>
         <Grid x:Name="grid3" DataContext="{StaticResource pojazdViewSource2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="521,101,0,0">
             <Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="Rocznik:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="rocznikTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding Rocznik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="138" TextChanged="rocznikTextBox_TextChanged"/>
+            <TextBox x:Name="rocznikTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="20" Text="{Binding Rocznik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="138" TextChanged="rocznikTextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="grid4" DataContext="{StaticResource wlascicielViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,240,0,0">
             <Grid.ColumnDefinitions>
@@ -57,7 +57,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Content="PESEL:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="pESELTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="16" Text="{Binding PESEL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="138" TextChanged="pESELTextBox_TextChanged"/>
+            <TextBox x:Name="pESELTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="3,0,0,0" Grid.Row="0" Background="#FFE0DADA" FontSize="20" Text="{Binding PESEL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="138" TextChanged="pESELTextBox_TextChanged"/>
         </Grid>
         <Button Content="Sprawdź" HorizontalAlignment="Left" Height="45" Margin="300,236,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click" FontSize="20"/>
         <Grid x:Name="grid5" DataContext="{StaticResource wlascicielViewSource1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,233,0,0">

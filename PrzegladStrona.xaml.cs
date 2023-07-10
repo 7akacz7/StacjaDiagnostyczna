@@ -80,8 +80,8 @@ namespace StacjaDiagnostyczna
                 // Pobieranie obiektu Pojazd na podstawie Numeru Rejestracyjnego
                 Pojazd pojazd = context.Pojazd.FirstOrDefault(p => p.Numer_Rejestracyjny == numerRejestracyjny);
 
-                if (pojazd != null && idDiagnosty != 0)
-                {
+             if (pojazd != null && idDiagnosty != 0)
+             {
 
                 if (int.TryParse(przebiegTextBox.Text, out int nowyPrzebieg) && nowyPrzebieg >= pojazd.Przebieg)
                 {
@@ -107,9 +107,30 @@ namespace StacjaDiagnostyczna
                 {
                     MessageBox.Show("Wprowadź poprawną wartość dla pola Przebieg.");
                 }
-            }
+             }
             
 
+        }
+
+        /// <summary>
+        /// Obsługa zdarzenia zmiany tekstu w TextBox przebiegTextBox.
+        /// </summary>
+        private void przebiegTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            przebiegTextBox.MaxLength = 6;
+            if (sender is TextBox textBox)
+            {
+                string newText = "";
+                foreach (char c in textBox.Text)
+                {
+                    if (char.IsDigit(c))
+                    {
+                        newText += c;
+                    }
+                }
+                textBox.Text = newText;
+                textBox.CaretIndex = newText.Length; // Ustawianie kursora na końcu tekstu
+            }
         }
 
         /// <summary>
@@ -135,26 +156,7 @@ namespace StacjaDiagnostyczna
             }
         }
 
-        /// <summary>
-        /// Obsługa zdarzenia zmiany tekstu w TextBox przebiegTextBox.
-        /// </summary>
-        private void przebiegTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            przebiegTextBox.MaxLength = 6;
-            if (sender is TextBox textBox)
-            {
-                string newText = "";
-                foreach (char c in textBox.Text)
-                {
-                    if (char.IsDigit(c))
-                    {
-                        newText += c;
-                    }
-                }
-                textBox.Text = newText;
-                textBox.CaretIndex = newText.Length; // Ustawianie kursora na końcu tekstu
-            }
-        }
+      
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
